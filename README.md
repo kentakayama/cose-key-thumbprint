@@ -1,4 +1,4 @@
-# Thumbprint of COSE_Key Calculator
+# COSE_Key Thumbprint Calculator
 See draft-isobe-cose-key-thumbprint.
 
 ## Install
