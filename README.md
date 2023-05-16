@@ -3,8 +3,8 @@ See draft-isobe-cose-key-thumbprint.
 
 ## Install
 - `make` and `git`
-- `python3` and cbor2 lib (`$ pip install cbor2`)
-- `ruby` and cbor2diag tool (`$ gem install cbor`)
+- `python3` and [cbor2](https://pypi.org/project/cbor2/) lib ( `$ pip install cbor2` )
+- `ruby` and [cbor-diag](https://rubygems.org/gems/cbor-diag/) tool ( `$ gem install cbor-diag` )
 
 ```
 $ git clone https://github.com/kentakayama/cose_key_thumbprint.git
