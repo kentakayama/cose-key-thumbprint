@@ -23,3 +23,17 @@ or
 $ make ec2_p256.cbor          # generate COSE_Key fron diagnostic notation
 $ python3 ./calc_thumbprint_of_cose_key.py ec2_p256.cbor - -f hex
 ```
+
+## How it works
+```mermaid
+graph TD
+
+DN["Diagnostic Notation (*.diag)"]
+CBOR["Raw COSE_Key (*.cbor)"]
+CKEY["Normalized COSE_Key (*.ckey)"]
+HASH["sha256sum (*.hash)"]
+
+DN -- diag2cbor.rb --> CBOR
+CBOR -- "(python3 calc_thumbprint_of_cose_key.py)" --> CKEY
+CBOR -- python3 calc_thumbprint_of_cose_key.py --> HASH
+```
