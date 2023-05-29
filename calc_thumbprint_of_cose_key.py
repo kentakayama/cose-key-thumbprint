@@ -28,7 +28,9 @@ def calc_thumbprint(infile: str, outfile: str, form: str, outkeyfile=None) -> No
 
     # extract exact key-value pairs from original COSE_Key
     # to calculate thumbprint
-    if d[1] == 2: # kty == EC2
+    if d[1] == 1: # kty == OKP
+        d = dict((k, d[k]) for k in [1, -1, -2]) # [kty, crv, x]
+    elif d[1] == 2: # kty == EC2
         d = dict((k, d[k]) for k in [1, -1, -2, -3]) # [kty, crv, x, y]
     elif d[1] == 3: # kty == RSA
         d = dict((k, d[k]) for k in [1, -1, -2]) # [kty, n, e]

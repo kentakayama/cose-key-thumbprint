@@ -1,0 +1,10 @@
+{
+  / see RFC8032 section 7.1 /
+  / kid / 2: 'ed25519-private-key',
+  / kty / 1: 1 / OKP /,
+  / crv / -1: 6 / Ed25519 /,
+  / x / -2: h'd75a980182b10ab7d54bfed3c964073a
+              0ee172f3daa62325af021a68f707511a',
+  / d / -4: h'9d61b19deffd5a60ba844af492ec2cc4
+              4449c5697b326919703bac031cae7f60'
+}
