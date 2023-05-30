@@ -58,14 +58,14 @@ test: all
 validate: ec2_p256.hash rsa2048.hash
 	@echo Validate ec2_p256.hash
 	@xxd -p -c 32 ec2_p256.hash
-	@xxd -p -c 32 ec2_p256.validate.hash
-	@diff ec2_p256.validate.hash ec2_p256.hash || echo "[INVALID] EC2 COSE_Key Thumbprint differ" | exit 1
+	@xxd -p -c 32 ec2_p256.hash.validate
+	@diff ec2_p256.hash.validate ec2_p256.hash || echo "[INVALID] EC2 COSE_Key Thumbprint differ" | exit 1
 	@echo [VALID] EC2 COSE_Key Thumbprint matches
 	@echo
 	@echo Validate rsa2048.hash
 	@xxd -p -c 32 rsa2048.hash
-	@xxd -p -c 32 rsa2048.validate.hash
-	@diff rsa2048.validate.hash rsa2048.hash || echo "[INVALID] RSA COSE_Key Thumbprint differ" | exit 1
+	@xxd -p -c 32 rsa2048.hash.validate
+	@diff rsa2048.hash.validate rsa2048.hash || echo "[INVALID] RSA COSE_Key Thumbprint differ" | exit 1
 	@echo [VALID] RSA COSE_Key Thumbprint matches
 	@echo
 	@echo [OK] All COSE_Key Thumbprints are valid

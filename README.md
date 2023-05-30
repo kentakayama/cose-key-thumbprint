@@ -79,6 +79,27 @@ Validate rsa2048.hash
 
 [OK] All COSE_Key Thumbprints are valid
 ```
+or in docker environment
+```
+$ sudo docker build -t cose-key-thumbprint .
+$ sudo docker run -t cose-key-thumbprint
+diag2cbor.rb  < ec2_p256.diag > ec2_p256.cbor
+python3 ./calc_thumbprint_of_cose_key.py ec2_p256.cbor ec2_p256.hash -f bin -k ec2_p256.ckey
+diag2cbor.rb  < rsa2048.diag > rsa2048.cbor
+python3 ./calc_thumbprint_of_cose_key.py rsa2048.cbor rsa2048.hash -f bin -k rsa2048.ckey
+Validate ec2_p256.hash
+496bd8afadf307e5b08c64b0421bf9dc01528a344a43bda88fadd1669da253ec
+496bd8afadf307e5b08c64b0421bf9dc01528a344a43bda88fadd1669da253ec
+[VALID] EC2 COSE_Key Thumbprint matches
+
+Validate rsa2048.hash
+120e976e0208c57c9cc7c92e548317c9551c1f0ede5d4680119c4d7757503f39
+120e976e0208c57c9cc7c92e548317c9551c1f0ede5d4680119c4d7757503f39
+[VALID] RSA COSE_Key Thumbprint matches
+
+[OK] All COSE_Key Thumbprints are valid
+rm ec2_p256.cbor rsa2048.cbor
+```
 
 ## How it works
 ```mermaid
