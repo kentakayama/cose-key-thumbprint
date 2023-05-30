@@ -6,7 +6,7 @@
 
 DIAG2CBOR := diag2cbor.rb # install this with `$ gem install cbor`
 COSEKEY2THUMB := python3 ./calc_thumbprint_of_cose_key.py
-TARGET := eddsa_ed25519.hash ec2_p256.hash aes128.hash
+TARGET := ed25519.hash ec2_p256.hash rsa2048.hash aes128.hash
 
 .PHONY: all
 all: $(TARGET)
@@ -28,7 +28,7 @@ ckey: $(TARGET:.hash=.ckey)
 test: all
 	@echo Calculated thumbprint of EdDSA Ed25519 Public key
 	@echo ===Thumbprint===
-	xxd -p -c 64 eddsa_ed25519.hash
+	xxd -p -c 64 ed25519.hash
 	@echo ================
 	@echo Calculated thumbprint of EC2 P-256 Public key
 	@echo ===Thumbprint===
