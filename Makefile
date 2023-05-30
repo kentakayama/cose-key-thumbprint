@@ -34,11 +34,21 @@ test: all
 	@echo ===Thumbprint===
 	xxd -p -c 64 ec2_p256.hash
 	@echo ================
+	@echo Calculated thumbprint of RSA2048 Public key
+	@echo ===Thumbprint===
+	xxd -p -c 64 rsa2048.hash
+	@echo ================
 	@echo Calculated thumbprint of AES128 Secret key
 	@echo ===Thumbprint===
 	xxd -p -c 64 aes128.hash
 	@echo ================
 
+.PHONY: validate
+validate: ec2_p256.hash
+	@echo Validate ec2_p256.hash
+	@xxd -p -c 64 ec2_p256.hash | diff ec2_p256.validate.hash - || echo "EC2 COSE_Key Thumbprint differ" | exit 1
+	@echo "COSE_Key Thumbprints are valid"
+
 .PHONY: clean
 clean:
-	$(RM) *.hash *.ckey
+	$(RM) *.hash *.ckey *.cbor
